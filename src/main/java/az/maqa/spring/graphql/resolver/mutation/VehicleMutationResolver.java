@@ -1,4 +1,4 @@
-package az.maqa.spring.graphql.resolver;
+package az.maqa.spring.graphql.resolver.mutation;
 
 import az.maqa.spring.graphql.dto.VehicleDTO;
 import az.maqa.spring.graphql.entity.Vehicle;

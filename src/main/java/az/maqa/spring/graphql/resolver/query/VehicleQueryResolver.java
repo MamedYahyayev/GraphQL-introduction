@@ -1,4 +1,4 @@
-package az.maqa.spring.graphql.resolver;
+package az.maqa.spring.graphql.resolver.query;
 
 import az.maqa.spring.graphql.entity.Vehicle;
 import az.maqa.spring.graphql.repository.VehicleRepository;
