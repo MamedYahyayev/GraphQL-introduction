@@ -1,0 +1,27 @@
+type ResponseEmployee {
+    id : ID!,
+    name : String!,
+    surname: String,
+    age : Int,
+    job : String,
+    salary : Float
+}
+
+input EmployeeDTO {
+    name : String!,
+    surname: String,
+    age : Int,
+    job : String,
+    salary : Float
+}
+
+extend type Query {
+    findAllEmployees:[ResponseEmployee]!
+    findEmployeeById(id: ID!):ResponseEmployee!
+}
+
+
+extend type Mutation {
+    createEmployee(employee:EmployeeDTO):ResponseEmployee!
+    updateEmployee(employee:EmployeeDTO!,id :ID!):ResponseEmployee
+}
