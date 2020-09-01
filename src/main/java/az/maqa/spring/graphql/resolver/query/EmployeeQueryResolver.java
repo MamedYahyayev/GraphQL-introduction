@@ -1,6 +1,7 @@
 package az.maqa.spring.graphql.resolver.query;
 
 import az.maqa.spring.graphql.dto.EmployeeDTO;
+import az.maqa.spring.graphql.repository.EmployeeRepository;
 import az.maqa.spring.graphql.response.ResponseEmployee;
 import az.maqa.spring.graphql.service.EmployeeService;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
@@ -9,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -19,6 +22,9 @@ public class EmployeeQueryResolver implements GraphQLQueryResolver {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     public List<ResponseEmployee> findAllEmployees() {
         List<EmployeeDTO> employeeList = employeeService.getAllEmployees();

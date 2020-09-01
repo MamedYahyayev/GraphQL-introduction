@@ -2,6 +2,8 @@ package az.maqa.spring.graphql.service.impl;
 
 import az.maqa.spring.graphql.dto.EmployeeDTO;
 import az.maqa.spring.graphql.entity.Employee;
+import az.maqa.spring.graphql.exception.EmployeeNotFoundException;
+import az.maqa.spring.graphql.exception.ExceptionHandler;
 import az.maqa.spring.graphql.repository.EmployeeRepository;
 import az.maqa.spring.graphql.request.RequestEmployee;
 import az.maqa.spring.graphql.service.EmployeeService;
@@ -18,6 +20,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private ExceptionHandler exceptionHandler;
 
     @Override
     public List<EmployeeDTO> getAllEmployees() {
@@ -37,7 +42,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeDTO getEmployeeById(Long id) {
         ModelMapper modelMapper = new ModelMapper();
 
-        Employee employee = employeeRepository.findById(id).get();
+        Employee employee = employeeRepository.findEmployeeById(id);
+
+        if (employee == null) {
+            throw new EmployeeNotFoundException("Employee Not Found", "id");
+        }
 
         EmployeeDTO returnValue = modelMapper.map(employee, EmployeeDTO.class);
 

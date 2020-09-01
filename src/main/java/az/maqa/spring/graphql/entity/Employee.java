@@ -26,6 +26,7 @@ public class Employee implements Serializable {
 
     private Float salary;
 
-    //private Department department;
+    @ManyToOne
+    private Department department;
 
 }

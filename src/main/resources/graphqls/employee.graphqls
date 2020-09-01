@@ -4,7 +4,33 @@ type ResponseEmployee {
     surname: String,
     age : Int,
     job : String,
-    salary : Float
+    salary : Float,
+    department: Department,
+    status: ResponseStatus
+}
+
+type ResponseStatus{
+    apiVersion : Float,
+    details : ErrorDetails,
+    errors: [Error]
+}
+
+type ErrorDetails{
+    sendReport: String,
+    reason: String,
+    action: String
+}
+
+type Error {
+    code : Float,
+    message: String
+}
+
+
+type Department {
+    id : ID!,
+    departmentName : String,
+    departmentCode : String
 }
 
 input EmployeeDTO {

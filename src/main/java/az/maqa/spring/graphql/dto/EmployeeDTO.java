@@ -1,6 +1,7 @@
 package az.maqa.spring.graphql.dto;
 
 import az.maqa.spring.graphql.entity.Department;
+import az.maqa.spring.graphql.response.ResponseStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,4 +22,6 @@ public class EmployeeDTO {
     private Double salary;
 
     private Department department;
+
+    private ResponseStatus status;
 }

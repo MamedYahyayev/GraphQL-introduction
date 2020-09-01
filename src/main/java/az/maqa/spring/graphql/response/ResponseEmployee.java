@@ -21,4 +21,6 @@ public class ResponseEmployee {
     private Double salary;
 
     private Department department;
+
+    private ResponseStatus status;
 }
